@@ -1,0 +1,73 @@
+﻿@model MVC005.Models.TblHanghoa
+
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TblHanghoa</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.STenhang)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.STenhang)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FGianiemyet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FGianiemyet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SDacdiem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SDacdiem)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SXuatxu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SXuatxu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SAnhminhhoa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SAnhminhhoa)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete" class="mt-2">
+        <input type="hidden" asp-for="PkIHanghoaId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function (event) {
+                event.preventDefault(); // prevent the form from submitting normally
+                if (confirm("Có chắc chắn muốn xoá không?")) {
+                    $.ajax({
+                        url: $(this).attr('action'), // the URL to send the request to
+                        type: 'POST', // the type of HTTP verb to use (GET, POST, etc.)
+                        data: $(this).serialize(), // convert form data to URL-encoded notation
+                        success: function (response) {
+                            alert('Xóa thành công');
+                            // TODO: remove the item from the list or reload the page
+                            window.location.replace("/TblHanghoas");
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            alert('Có lỗi xảy ra: ' + errorThrown);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+}

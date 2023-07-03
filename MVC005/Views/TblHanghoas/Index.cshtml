@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MVC005.Models.TblHanghoa>
+
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PkIHanghoaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STenhang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FGianiemyet)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.SDacdiem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SXuatxu)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.SAnhminhhoa)
+            </th>
+            
+            <th>
+               Xử lý
+            </th> 
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PkIHanghoaId)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STenhang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FGianiemyet)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.SDacdiem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SXuatxu)
+            </td> *@
+            <td>
+                    @if (!string.IsNullOrEmpty(item.SAnhminhhoa))
+                    {
+                        <img src="@Html.DisplayFor(modelItem => item.SAnhminhhoa)" alt="" width="50" height="100" />
+                    }
+                    else
+                    {
+                       <p>Không có hình</p>
+                    }
+            </td>
+               
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.PkIHanghoaId"><i class="fal fa-edit"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.PkIHanghoaId"><i class="far fa-info"></i> </a>
+ |
+                    <a asp-action="Delete" asp-route-id="@item.PkIHanghoaId"><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+﻿@model MVC005.Models.TblHanghoa
+
+
+
+<h1>Create</h1>
+
+<h4>Hàng hóa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="STenhang" class="control-label"></label>
+                <input asp-for="STenhang" class="form-control" />
+                <span asp-validation-for="STenhang" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FGianiemyet" class="control-label"></label>
+                <input asp-for="FGianiemyet" class="form-control" />
+                <span asp-validation-for="FGianiemyet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SDacdiem" class="control-label"></label>
+                <input asp-for="SDacdiem" class="form-control" />
+                <span asp-validation-for="SDacdiem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SXuatxu" class="control-label"></label>
+                <input asp-for="SXuatxu" class="form-control" />
+                <span asp-validation-for="SXuatxu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SAnhminhhoa" class="control-label"></label>
+                <input type="file" name="file" class="form-control border-0 shadow " />
+            
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

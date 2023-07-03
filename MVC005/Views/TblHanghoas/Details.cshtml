@@ -1,0 +1,45 @@
+﻿@model MVC005.Models.TblHanghoa
+
+
+<h1>Details</h1>
+
+<div>
+    <h4>TblHanghoa</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.STenhang)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.STenhang)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FGianiemyet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FGianiemyet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SDacdiem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SDacdiem)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SXuatxu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SXuatxu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SAnhminhhoa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SAnhminhhoa)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.PkIHanghoaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
